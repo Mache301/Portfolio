@@ -1,0 +1,353 @@
+import React, { useState } from 'react';
+import { Mail, Linkedin, Youtube, Volume2, Menu, X } from 'lucide-react';
+
+export default function GameAudioPortfolio() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const scrollToSection = (id) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navigation = [
+    { label: 'Music', id: 'music' },
+    { label: 'Sound Design', id: 'sounddesign' },
+    { label: 'Audio Implementation', id: 'implementation' },
+    { label: 'About', id: 'about' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
+  const musicVideos = [
+    { id: 1, title: 'Music Reel 1', videoId: 'yCjn0iL86HI' },
+    { id: 2, title: 'Music Reel 2', videoId: 'uiHDVpp86LM' },
+  ];
+
+  const implementationVideos = [
+    { id: 1, title: 'Technical Implementation 1', videoId: 'RcDFzZmo5Q4' },
+    { id: 2, title: 'Technical Implementation 2', videoId: '6rd4wzTCRjo' },
+  ];
+
+  const services = [
+    {
+      title: 'Original Music Composition',
+      description: 'Cinematic and adaptive orchestral music tailored to your game\'s narrative and gameplay.',
+      icon: '♪',
+    },
+    {
+      title: 'Sound Design',
+      description: 'Professional audio effects and atmospheric sound design that enhance immersion.',
+      icon: '≈',
+    },
+    {
+      title: 'Audio Implementation',
+      description: 'Expert implementation using industry-standard tools and middleware for interactive audio systems.',
+      icon: '⚙',
+    },
+  ];
+
+  const education = [
+    { degree: 'Degree in Music Composition', institution: 'National University of Rosario' },
+    { degree: 'Degree in Sound Technician', institution: 'National University of Rosario' },
+    { degree: 'Diploma in Game Audio', institution: 'Image Campus Academy' },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" style={{fontFamily: 'Playfair Display, serif'}}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        * {
+          font-family: 'Playfair Display', serif;
+        }
+      `}</style>
+
+      {/* Navigation */}
+      <nav className="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-sm border-b border-amber-900/20">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-amber-100">MANUEL SANCHEZ</h1>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex gap-8">
+            {navigation.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                className="text-amber-100/70 hover:text-amber-100 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-amber-100"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-slate-900 border-t border-amber-900/20 px-6 py-4 space-y-3">
+            {navigation.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left text-amber-100/70 hover:text-amber-100 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section with Background Image */}
+      <section className="pt-32 pb-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-50"
+          style={{
+            backgroundImage: 'linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.7) 100%)',
+          }}
+        ></div>
+
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <h2 className="text-5xl md:text-7xl font-bold text-amber-100 mb-6 leading-tight drop-shadow-lg">
+            Game & Audiovisual Music Composer
+          </h2>
+          <p className="text-xl text-amber-100/70 mb-4 max-w-2xl mx-auto drop-shadow-md">
+            Original, cinematic and adaptive music designed to enhance gameplay and storytelling.
+          </p>
+          <p className="text-amber-100/60 mb-8 drop-shadow-md">
+            Available for freelance and long-term projects
+          </p>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="inline-block px-8 py-3 bg-amber-700 hover:bg-amber-600 text-slate-950 font-semibold rounded-lg transition-colors"
+          >
+            Get In Touch
+          </button>
+        </div>
+      </section>
+
+      {/* Music Playlist Section */}
+      <section id="music" className="py-20 px-6 border-t border-amber-900/20">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-amber-100 mb-4 text-center">Original Music Playlist</h3>
+          <p className="text-amber-100/70 text-center mb-12 max-w-2xl mx-auto">
+            Listen to selected original tracks for videogames and audiovisual projects.
+          </p>
+          
+          {/* SoundCloud Playlist Embed */}
+          <div className="mb-16">
+            <div className="max-w-3xl mx-auto bg-slate-800/50 border border-amber-900/30 rounded-lg p-6 overflow-hidden">
+              <iframe 
+                width="100%" 
+                height="380" 
+                scrolling="no" 
+                frameBorder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1537699319&color=%23b45309&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                className="rounded"
+              ></iframe>
+            </div>
+          </div>
+
+          {/* Music Videos Section */}
+          <h4 className="text-2xl font-bold text-amber-100 mb-8 text-center">Music Reels</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {musicVideos.map((video) => (
+              <div
+                key={video.id}
+                className="bg-slate-800/50 border border-amber-900/30 rounded-lg overflow-hidden hover:border-amber-700/60 transition-all"
+              >
+                <div className="aspect-video bg-slate-900">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.videoId}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={video.title}
+                  ></iframe>
+                </div>
+                <div className="p-4">
+                  <h5 className="text-amber-100 font-semibold">{video.title}</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="sounddesign" className="py-20 px-6 border-t border-amber-900/20">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-amber-100 mb-12 text-center">My Services</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, idx) => (
+              <div key={idx} className="bg-slate-800/50 border border-amber-900/30 rounded-lg p-8">
+                <div className="text-4xl mb-4 text-amber-700">{service.icon}</div>
+                <h4 className="text-amber-100 font-semibold text-lg mb-3">{service.title}</h4>
+                <p className="text-amber-100/70 text-sm leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Audio Implementation Section */}
+      <section id="implementation" className="py-20 px-6 border-t border-amber-900/20">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-amber-100 mb-8 text-center">Audio Implementation</h3>
+          
+          <div className="bg-slate-800/50 border border-amber-900/30 rounded-lg p-8 md:p-12 mb-12">
+            <p className="text-amber-100/80 leading-relaxed mb-6">
+              Videogames and audiovisual projects are built by multidisciplinary teams and music is just one part of a bigger picture. I specialize in integrating adaptive and interactive audio systems that respond to gameplay in real-time.
+            </p>
+            
+            <h4 className="text-amber-100 font-semibold mb-4">Expertise includes:</h4>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-amber-100/70">
+              <li className="flex gap-3">
+                <span className="text-amber-700 font-bold">•</span>
+                <span>Interactive music systems and dynamic scoring</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-amber-700 font-bold">•</span>
+                <span>Middleware implementation (FMOD Studio, Wwise)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-amber-700 font-bold">•</span>
+                <span>Audio parameter mapping and optimization</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-amber-700 font-bold">•</span>
+                <span>Cross-platform audio deployment</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Implementation Videos Section */}
+          <h4 className="text-2xl font-bold text-amber-100 mb-8 text-center">Technical Breakdown</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {implementationVideos.map((video) => (
+              <div
+                key={video.id}
+                className="bg-slate-800/50 border border-amber-900/30 rounded-lg overflow-hidden hover:border-amber-700/60 transition-all"
+              >
+                <div className="aspect-video bg-slate-900">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.videoId}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={video.title}
+                  ></iframe>
+                </div>
+                <div className="p-4">
+                  <h5 className="text-amber-100 font-semibold">{video.title}</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 border-t border-amber-900/20">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-amber-100 mb-12 text-center">About Me</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h4 className="text-amber-100 font-semibold text-lg mb-4">Background</h4>
+              <p className="text-amber-100/80 mb-4 leading-relaxed">
+                I'm a game audio composer and sound designer with a passion for creating immersive audio experiences that enhance storytelling and gameplay.
+              </p>
+              <p className="text-amber-100/80 leading-relaxed">
+                With a strong foundation in both music composition and technical sound engineering, I combine artistic vision with technical expertise to deliver professional-grade audio solutions for game developers and studios.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-amber-100 font-semibold text-lg mb-6">Education & Experience</h4>
+              <p className="text-amber-100/60 text-sm mb-4">Game Audio: 2022–Present</p>
+              <p className="text-amber-100/60 text-sm mb-6">Linear Audio: 2017–Present</p>
+              
+              <div className="space-y-4">
+                {education.map((edu, idx) => (
+                  <div key={idx} className="bg-slate-800/50 border border-amber-900/30 rounded-lg p-4">
+                    <p className="text-amber-100 font-semibold text-sm">{edu.degree}</p>
+                    <p className="text-amber-100/60 text-xs">{edu.institution}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-slate-800/50 border border-amber-900/30 rounded-lg p-8">
+            <h4 className="text-amber-100 font-semibold text-lg mb-4">Workflow & Collaboration</h4>
+            <p className="text-amber-100/80 leading-relaxed">
+              Collaboration and communication are key to my approach. I work closely with developers, directors, and sound teams to understand the creative vision and technical requirements. My focus is on creating unique, adaptive audio that enhances the overall experience and integrates seamlessly with your project's audio landscape.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 border-t border-amber-900/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-amber-100 mb-8">Let's Work Together</h3>
+          <p className="text-amber-100/70 mb-12 text-lg">
+            Ready to elevate your game with professional audio? Get in touch to discuss your project.
+          </p>
+
+          <div className="bg-slate-800/50 border border-amber-900/30 rounded-lg p-8 md:p-12 mb-12">
+            <a
+              href="mailto:manuscz78@gmail.com"
+              className="inline-flex items-center gap-3 text-2xl text-amber-100 hover:text-amber-300 transition-colors font-semibold mb-6"
+            >
+              <Mail size={32} />
+              manuscz78@gmail.com
+            </a>
+            <p className="text-amber-100/60">Send me an email with details about your project</p>
+          </div>
+
+          <div className="flex justify-center gap-8">
+            <a
+              href="https://www.linkedin.com/in/mache-sanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 text-amber-100/70 hover:text-amber-100 transition-colors"
+            >
+              <Linkedin size={32} />
+              <span className="text-sm">LinkedIn</span>
+            </a>
+            <a
+              href="https://www.youtube.com/@MacheComposer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 text-amber-100/70 hover:text-amber-100 transition-colors"
+            >
+              <Youtube size={32} />
+              <span className="text-sm">YouTube</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-amber-900/20 text-center text-amber-100/50 text-sm">
+        <p>© 2024 Manuel Sanchez. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}

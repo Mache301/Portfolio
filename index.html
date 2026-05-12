@@ -420,6 +420,14 @@
 <body>
     <nav>
         <a href="#home">MANUEL SANCHEZ</a>
+        <!-- TAB NAVIGATION -->
+        <div style="position: fixed; top: 5rem; left: 50%; transform: translateX(-50%); z-index: 99; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(180, 83, 9, 0.3); border-radius: 0.5rem; padding: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; max-width: 90%; justify-content: center;">
+            <a href="#music" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Music</a>
+            <a href="#sounddesign" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Sound Design</a>
+            <a href="#technicalsounddesign" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Technical</a>
+            <a href="#about" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">About</a>
+            <a href="#contact" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Contact</a>
+        </div>
     </nav>
 
     <!-- HERO SECTION - FULL SCREEN WITH PARALLAX -->
@@ -427,8 +435,8 @@
         <div class="hero-background"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Game & Audiovisual Music Composer</h1>
-            <p>Original, cinematic and adaptive music designed to enhance gameplay and storytelling.</p>
+            <h1>Game audio composer & Technical Sound Designer</h1>
+            <p>Original music and adaptative driven audio designed to enhance gameplay and storytelling.</p>
             <p class="subtitle">Available for freelance and long-term projects</p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
@@ -449,13 +457,13 @@
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/yCjn0iL86HI" allowfullscreen></iframe>
                 </div>
-                <div class="video-title">Music Reel 1</div>
+                <div class="video-title"></div>
             </div>
             <div class="video-box">
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/uiHDVpp86LM" allowfullscreen></iframe>
                 </div>
-                <div class="video-title">Music Reel 2</div>
+                <div class="video-title"></div>
             </div>
         </div>
     </section>
@@ -464,21 +472,32 @@
     <section id="sounddesign">
         <h2>Sound Design</h2>
         <p class="section-desc">Professional audio effects and atmospheric sound design that enhance immersion and bring your game world to life.</p>
-        <div class="cards">
-            <div class="card">
-                <div class="card-icon">🎙</div>
-                <h3>UI & Interface Sounds</h3>
-                <p>Polished menu clicks, confirmations, and feedback sounds that guide player interactions.</p>
+        
+        <h3 class="center">Sound Design Demos</h3>
+        <div class="videos">
+            <div class="video-box">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sound Design Demo 1</div>
             </div>
-            <div class="card">
-                <div class="card-icon">⚔</div>
-                <h3>Combat & Impact Sounds</h3>
-                <p>Dynamic weapon effects, hits, and impacts that make every action feel powerful and satisfying.</p>
+            <div class="video-box">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sound Design Demo 2</div>
             </div>
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>Environmental Audio</h3>
-                <p>Ambient soundscapes, foley, and atmospheric layers that create immersive game worlds.</p>
+            <div class="video-box">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sound Design Demo 3</div>
+            </div>
+            <div class="video-box">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sound Design Demo 4</div>
             </div>
         </div>
     </section>
@@ -505,13 +524,13 @@
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/RcDFzZmo5Q4" allowfullscreen></iframe>
                 </div>
-                <div class="video-title">Technical Implementation 1</div>
+                <div class="video-title"></div>
             </div>
             <div class="video-box">
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/6rd4wzTCRjo" allowfullscreen></iframe>
                 </div>
-                <div class="video-title">Technical Implementation 2</div>
+                <div class="video-title"></div>
             </div>
         </div>
     </section>
@@ -560,8 +579,8 @@
         <h2>Let's talk about your ideas</h2>
         <p class="section-desc">Ready to elevate your game with professional audio? Get in touch to discuss your project.</p>
 
-        <div class="box center">
-            <a href="mailto:manuscz78@gmail.com" class="contact-link">
+       <div class="box center">
+            <a href="mailto:manuscz78@gmail.com?subject=Game%20Audio%20Project%20Inquiry&body=Hi%20Manuel,%0A%0AI%20would%20like%20to%20discuss%20a%20game%20audio%20project." class="contact-link">
                 manuscz78@gmail.com
             </a>
             <p>Send me an email with details about your project</p>

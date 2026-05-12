@@ -12,6 +12,57 @@
             box-sizing: border-box;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(252, 211, 77, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(252, 211, 77, 0.6);
+            }
+        }
+
         body {
             font-family: 'Playfair Display', serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
@@ -56,18 +107,21 @@
             color: #fcd34d;
             margin-bottom: 2rem;
             text-align: center;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
         h3 {
             color: #fcd34d;
             font-size: 1.3rem;
             margin: 1.5rem 0 1rem 0;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         p {
             color: rgba(254, 243, 199, 0.8);
             margin-bottom: 1rem;
             line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
         .hero {
@@ -96,11 +150,14 @@
             cursor: pointer;
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease-out 0.9s both;
         }
 
         .btn:hover {
             background: #92400e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(180, 83, 9, 0.4);
         }
 
         .embed-container {
@@ -110,6 +167,13 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            transition: all 0.3s ease;
+        }
+
+        .embed-container:hover {
+            border-color: rgba(252, 211, 77, 0.4);
+            background: rgba(30, 27, 75, 0.7);
         }
 
         .videos {
@@ -124,6 +188,14 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .video-box:hover {
+            transform: scale(1.05);
+            border-color: rgba(252, 211, 77, 0.6);
+            box-shadow: 0 15px 30px rgba(180, 83, 9, 0.2);
         }
 
         .video-frame {
@@ -161,6 +233,15 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(252, 211, 77, 0.6);
+            background: rgba(30, 27, 75, 0.8);
+            box-shadow: 0 20px 40px rgba(180, 83, 9, 0.2);
         }
 
         .card-icon {
@@ -178,6 +259,13 @@
             border-radius: 0.5rem;
             padding: 2rem;
             margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            border-color: rgba(252, 211, 77, 0.4);
+            background: rgba(30, 27, 75, 0.7);
         }
 
         .box h3 {
@@ -221,11 +309,14 @@
             color: #fcd34d;
             text-decoration: none;
             margin-bottom: 1rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .contact-link:hover {
             color: #fde047;
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(252, 211, 77, 0.5);
         }
 
         .social {
@@ -242,11 +333,14 @@
             gap: 0.5rem;
             color: rgba(254, 243, 199, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
         .social a:hover {
             color: #fcd34d;
+            transform: translateY(-5px);
+            text-shadow: 0 0 15px rgba(252, 211, 77, 0.4);
         }
 
         footer {
@@ -284,14 +378,11 @@
         <a href="#home">MANUEL SANCHEZ</a>
     </nav>
 
-    <section class="hero" id="home" style="background-image: url('images/FechaMons-07886_edited.jpg'); background-size: cover; background-position: center; position: relative;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%); z-index: 1;"></div>
-        <div style="position: relative; z-index: 2;">
-            <h1>Game & Audiovisual Music Composer</h1>
-            <p>Original, cinematic and adaptive music designed to enhance gameplay and storytelling.</p>
-            <p style="color: rgba(254, 243, 199, 0.6);">Available for freelance and long-term projects</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-        </div>
+    <section class="hero" id="home">
+        <h1>Game & Audiovisual Music Composer</h1>
+        <p>Original, cinematic and adaptive music designed to enhance gameplay and storytelling.</p>
+        <p style="color: rgba(254, 243, 199, 0.6);">Available for freelance and long-term projects</p>
+        <a href="#contact" class="btn">Get In Touch</a>
     </section>
 
     <section id="music">

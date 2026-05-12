@@ -32,41 +32,15 @@
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(252, 211, 77, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(252, 211, 77, 0.6);
-            }
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Playfair Display', serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             color: #fef3c7;
+            overflow-x: hidden;
         }
 
         nav {
@@ -92,14 +66,11 @@
             margin: 0 auto;
         }
 
-        section:first-of-type {
-            margin-top: 80px;
-        }
-
         h1 {
             font-size: 3.5rem;
             color: #fcd34d;
             margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         h2 {
@@ -124,17 +95,68 @@
             animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
-        .hero {
-            min-height: 70vh;
+        .center {
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
         }
 
-        .hero p {
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/FechaMons-07886_edited.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.92) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
             font-size: 1.1rem;
             color: rgba(254, 243, 199, 0.7);
-            max-width: 700px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            color: rgba(254, 243, 199, 0.6);
             margin-bottom: 2rem;
         }
 
@@ -158,6 +180,14 @@
             background: #92400e;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(180, 83, 9, 0.4);
+        }
+
+        .section-desc {
+            text-align: center;
+            color: rgba(254, 243, 199, 0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
         .embed-container {
@@ -253,6 +283,11 @@
             margin-top: 0;
         }
 
+        .card p {
+            color: rgba(254, 243, 199, 0.7);
+            font-size: 0.95rem;
+        }
+
         .box {
             background: rgba(30, 27, 75, 0.6);
             border: 1px solid rgba(180, 83, 9, 0.3);
@@ -270,6 +305,10 @@
 
         .box h3 {
             margin-top: 0;
+        }
+
+        .box p {
+            color: rgba(254, 243, 199, 0.8);
         }
 
         .grid-2 {
@@ -290,6 +329,7 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 1rem;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
         .edu-item strong {
@@ -350,10 +390,6 @@
             color: rgba(254, 243, 199, 0.4);
         }
 
-        .center {
-            text-align: center;
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -367,6 +403,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .social {
+                gap: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
             nav a {
                 font-size: 1.3rem;
             }
@@ -378,19 +422,22 @@
         <a href="#home">MANUEL SANCHEZ</a>
     </nav>
 
-   <section class="hero" id="home" style="background-image: url('images/FechaMons-07886_edited.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; padding: 0; margin: 0; width: 100vw; margin-left: calc(-50vw + 50%); min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.92) 100%); z-index: 1;"></div>
-        <div style="position: relative; z-index: 2; text-align: center; max-width: 700px; padding: 2rem;">
+    <!-- HERO SECTION - FULL SCREEN WITH PARALLAX -->
+    <div class="hero-container" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
             <h1>Game & Audiovisual Music Composer</h1>
             <p>Original, cinematic and adaptive music designed to enhance gameplay and storytelling.</p>
-            <p style="color: rgba(254, 243, 199, 0.6); margin-bottom: 2rem;">Available for freelance and long-term projects</p>
+            <p class="subtitle">Available for freelance and long-term projects</p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
-    </section>
+    </div>
 
+    <!-- ORIGINAL MUSIC PLAYLIST SECTION -->
     <section id="music">
         <h2>Original Music Playlist</h2>
-        <p class="center">Listen to selected original tracks for videogames and audiovisual projects.</p>
+        <p class="section-desc">Selected original tracks for videogames and audiovisual projects. Each piece represents a different mood, genre or gameplay context.</p>
         
         <div class="embed-container">
             <iframe width="100%" height="380" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1537699319&color=%23b45309&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -413,38 +460,43 @@
         </div>
     </section>
 
-    <section id="services">
-        <h2>My Services</h2>
+    <!-- SOUND DESIGN SECTION -->
+    <section id="sounddesign">
+        <h2>Sound Design</h2>
+        <p class="section-desc">Professional audio effects and atmospheric sound design that enhance immersion and bring your game world to life.</p>
         <div class="cards">
             <div class="card">
-                <div class="card-icon">♪</div>
-                <h3>Original Music Composition</h3>
-                <p>Cinematic and adaptive orchestral music tailored to your game's narrative and gameplay.</p>
+                <div class="card-icon">🎙</div>
+                <h3>UI & Interface Sounds</h3>
+                <p>Polished menu clicks, confirmations, and feedback sounds that guide player interactions.</p>
             </div>
             <div class="card">
-                <div class="card-icon">≈</div>
-                <h3>Sound Design</h3>
-                <p>Professional audio effects and atmospheric sound design that enhance immersion.</p>
+                <div class="card-icon">⚔</div>
+                <h3>Combat & Impact Sounds</h3>
+                <p>Dynamic weapon effects, hits, and impacts that make every action feel powerful and satisfying.</p>
             </div>
             <div class="card">
-                <div class="card-icon">⚙</div>
-                <h3>Audio Implementation</h3>
-                <p>Expert implementation using industry-standard tools and middleware for interactive audio systems.</p>
+                <div class="card-icon">🌍</div>
+                <h3>Environmental Audio</h3>
+                <p>Ambient soundscapes, foley, and atmospheric layers that create immersive game worlds.</p>
             </div>
         </div>
     </section>
 
-    <section id="implementation">
-        <h2>Audio Implementation</h2>
+    <!-- TECHNICAL SOUND DESIGN SECTION -->
+    <section id="technicalsounddesign">
+        <h2>Technical Sound Design</h2>
         
         <div class="box">
+            <h3>Interactive Audio Systems</h3>
             <p>Videogames and audiovisual projects are built by multidisciplinary teams and music is just one part of a bigger picture. I specialize in integrating adaptive and interactive audio systems that respond to gameplay in real-time.</p>
             
-            <h3>Expertise includes:</h3>
-            <p>Interactive music systems and dynamic scoring</p>
-            <p>Middleware implementation (FMOD Studio, Wwise)</p>
-            <p>Audio parameter mapping and optimization</p>
-            <p>Cross-platform audio deployment</p>
+            <h3>Expertise Includes:</h3>
+            <p>• Interactive music systems and dynamic scoring</p>
+            <p>• Middleware implementation (FMOD Studio, Wwise)</p>
+            <p>• Audio parameter mapping and real-time optimization</p>
+            <p>• Cross-platform audio deployment</p>
+            <p>• Audio performance optimization and profiling</p>
         </div>
 
         <h3 class="center">Technical Breakdown</h3>
@@ -464,6 +516,7 @@
         </div>
     </section>
 
+    <!-- ABOUT ME SECTION -->
     <section id="about">
         <h2>About Me</h2>
         
@@ -498,13 +551,14 @@
 
         <div class="box">
             <h3>Workflow & Collaboration</h3>
-            <p>Collaboration and communication are key to my approach. I work closely with developers, directors, and sound teams to understand the creative vision and technical requirements. My focus is on creating unique, adaptive audio that enhances the overall experience and integrates seamlessly with your project's audio landscape.</p>
+            <p>Videogames and audiovisual projects are built by multidisciplinary teams and music is just one part of a bigger picture. Collaboration and communication are key. I approach every project as a shared creative process, working closely with developers, directors and sound teams to understand the goals behind each scene, mechanic or moment. The focus is not only on making good music, but on making unique music that enhances the overall experience.</p>
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact">
-        <h2>Let's Work Together</h2>
-        <p class="center">Ready to elevate your game with professional audio? Get in touch to discuss your project.</p>
+        <h2>Let's talk about your ideas</h2>
+        <p class="section-desc">Ready to elevate your game with professional audio? Get in touch to discuss your project.</p>
 
         <div class="box center">
             <a href="mailto:manuscz78@gmail.com" class="contact-link">

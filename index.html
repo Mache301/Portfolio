@@ -12,22 +12,24 @@
             box-sizing: border-box;
         }
 
-        @keyframes fadeInUp {
+        @keyframes scaleUp {
             from {
+                transform: scale(0.95);
                 opacity: 0;
-                transform: translateY(30px);
             }
             to {
+                transform: scale(1);
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        @keyframes fadeIn {
+        @keyframes slideInUp {
             from {
+                transform: translateY(20px);
                 opacity: 0;
             }
             to {
+                transform: translateY(0);
                 opacity: 1;
             }
         }
@@ -47,6 +49,7 @@
             overflow-x: hidden;
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -57,112 +60,112 @@
             padding: 1.5rem 2rem;
         }
 
-        nav a {
+        nav h1 {
             color: #fcd34d;
             text-decoration: none;
             font-size: 1.8rem;
             font-weight: 900;
         }
 
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%);
+        /* Tab Navigation */
+        .tabs {
+            position: fixed;
+            top: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
-            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            max-width: 90%;
+            justify-content: center;
         }
 
-        h1 {
-            font-size: 3.5rem;
+        .tabs button {
+            padding: 0.5rem 1rem;
             color: #fcd34d;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            background: transparent;
+            border: none;
+            font-size: 0.9rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .tabs button:hover {
+            background: rgba(180, 83, 9, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto 0.5rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%);
+            border-radius: 0.5rem;
+        }
+
+        section:first-of-type {
+            margin-top: 80px;
         }
 
         h2 {
             font-size: 2.5rem;
             color: #fcd34d;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             text-align: center;
-            animation: fadeInUp 0.8s ease-out both;
         }
 
         h3 {
             color: #fcd34d;
             font-size: 1.3rem;
             margin: 1.5rem 0 1rem 0;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         p {
             color: rgba(254, 243, 199, 0.8);
             margin-bottom: 1rem;
             line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
-        .center {
+        .section-desc {
             text-align: center;
+            color: rgba(254, 243, 199, 0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
         }
 
         /* Hero Section */
-        .hero-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
+        .hero {
+            min-height: 70vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('images/FechaMons-07886_edited.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            z-index: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.92) 100%);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
             text-align: center;
-            max-width: 700px;
-            padding: 2rem;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fcd34d;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .hero-content p {
+        .hero p {
             font-size: 1.1rem;
             color: rgba(254, 243, 199, 0.7);
-            margin-bottom: 1rem;
+            max-width: 700px;
+            margin: 0 auto 1rem;
         }
 
-        .hero-content .subtitle {
+        .hero .subtitle {
             color: rgba(254, 243, 199, 0.6);
             margin-bottom: 2rem;
         }
@@ -180,7 +183,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
             transition: all 0.3s;
-            animation: fadeInUp 1s ease-out 0.9s both;
         }
 
         .btn:hover {
@@ -189,14 +191,7 @@
             box-shadow: 0 10px 20px rgba(180, 83, 9, 0.4);
         }
 
-        .section-desc {
-            text-align: center;
-            color: rgba(254, 243, 199, 0.7);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-
+        /* Embed Container */
         .embed-container {
             max-width: 600px;
             margin: 2rem auto;
@@ -204,7 +199,6 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 1rem;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
             transition: all 0.3s ease;
         }
 
@@ -213,6 +207,7 @@
             background: rgba(30, 27, 75, 0.7);
         }
 
+        /* Videos Grid */
         .videos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -226,8 +221,14 @@
             border-radius: 0.5rem;
             overflow: hidden;
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out both;
+            animation: slideInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
+
+        .video-box:nth-child(1) { animation-delay: 0s; }
+        .video-box:nth-child(2) { animation-delay: 0.1s; }
+        .video-box:nth-child(3) { animation-delay: 0.2s; }
+        .video-box:nth-child(4) { animation-delay: 0.3s; }
 
         .video-box:hover {
             transform: scale(1.05);
@@ -258,6 +259,7 @@
             font-weight: 700;
         }
 
+        /* Cards */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -271,7 +273,6 @@
             border-radius: 0.5rem;
             padding: 2rem;
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out both;
         }
 
         .card:hover {
@@ -279,11 +280,6 @@
             border-color: rgba(252, 211, 77, 0.6);
             background: rgba(30, 27, 75, 0.8);
             box-shadow: 0 20px 40px rgba(180, 83, 9, 0.2);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
         }
 
         .card h3 {
@@ -295,13 +291,13 @@
             font-size: 0.95rem;
         }
 
+        /* Box */
         .box {
             background: rgba(30, 27, 75, 0.6);
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 2rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out both;
             transition: all 0.3s ease;
         }
 
@@ -318,6 +314,7 @@
             color: rgba(254, 243, 199, 0.8);
         }
 
+        /* Grid */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -336,7 +333,6 @@
             border: 1px solid rgba(180, 83, 9, 0.3);
             border-radius: 0.5rem;
             padding: 1rem;
-            animation: fadeInUp 0.8s ease-out both;
         }
 
         .edu-item strong {
@@ -348,6 +344,7 @@
             color: rgba(254, 243, 199, 0.6);
         }
 
+        /* Contact */
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -357,7 +354,6 @@
             text-decoration: none;
             margin-bottom: 1rem;
             transition: all 0.3s;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .contact-link:hover {
@@ -381,7 +377,6 @@
             color: rgba(254, 243, 199, 0.7);
             text-decoration: none;
             transition: all 0.3s;
-            animation: fadeInUp 0.8s ease-out both;
         }
 
         .social a:hover {
@@ -390,69 +385,72 @@
             text-shadow: 0 0 15px rgba(252, 211, 77, 0.4);
         }
 
+        .center {
+            text-align: center;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
             border-top: 1px solid rgba(180, 83, 9, 0.2);
             color: rgba(254, 243, 199, 0.4);
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
             h2 {
                 font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
             }
 
             .grid-2 {
                 grid-template-columns: 1fr;
             }
 
-            .social {
-                gap: 1.5rem;
+            .tabs {
+                top: 4rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            nav {
+                padding: 1rem 2rem;
             }
 
-            nav a {
+            nav h1 {
                 font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
-        <a href="#home">MANUEL SANCHEZ</a>
-        <!-- TAB NAVIGATION -->
-        <div style="position: fixed; top: 5rem; left: 50%; transform: translateX(-50%); z-index: 99; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(180, 83, 9, 0.3); border-radius: 0.5rem; padding: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; max-width: 90%; justify-content: center;">
-            <a href="#music" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Music</a>
-            <a href="#sounddesign" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Sound Design</a>
-            <a href="#technicalsounddesign" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Technical</a>
-            <a href="#about" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">About</a>
-            <a href="#contact" style="padding: 0.5rem 1rem; color: #fcd34d; text-decoration: none; font-size: 0.9rem; border-radius: 0.3rem; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background='rgba(180, 83, 9, 0.3)'" onmouseout="this.style.background='transparent'">Contact</a>
-        </div>
+        <h1>MANUEL SANCHEZ</h1>
     </nav>
 
-    <!-- HERO SECTION - FULL SCREEN WITH PARALLAX -->
-    <div class="hero-container" id="home">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Game audio composer & Technical Sound Designer</h1>
-            <p>Original music and adaptative driven audio designed to enhance gameplay and storytelling.</p>
-            <p class="subtitle">Available for freelance and long-term projects</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-        </div>
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <button onclick="document.getElementById('music').scrollIntoView(true)">Music</button>
+        <button onclick="document.getElementById('sounddesign').scrollIntoView(true)">Sound Design</button>
+        <button onclick="document.getElementById('implementation').scrollIntoView(true)">Technical</button>
+        <button onclick="document.getElementById('about').scrollIntoView(true)">About</button>
+        <button onclick="document.getElementById('contact').scrollIntoView(true)">Contact</button>
     </div>
 
-    <!-- ORIGINAL MUSIC PLAYLIST SECTION -->
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Game & Audiovisual Music Composer</h1>
+        <p>Original, cinematic and adaptive music designed to enhance gameplay and storytelling.</p>
+        <p class="subtitle">Available for freelance and long-term projects</p>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView(true)">Get In Touch</button>
+    </section>
+
+    <!-- Music Section -->
     <section id="music">
         <h2>Original Music Playlist</h2>
-        <p class="section-desc">Selected original tracks for videogames and audiovisual projects. Each piece represents a different mood, genre or gameplay context.</p>
+        <p class="section-desc">Listen to selected original tracks for videogames and audiovisual projects. Each piece represents a different mood, genre or gameplay context.</p>
         
         <div class="embed-container">
             <iframe width="100%" height="380" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1537699319&color=%23b45309&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -464,54 +462,40 @@
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/yCjn0iL86HI" allowfullscreen></iframe>
                 </div>
-                <div class="video-title"></div>
+                <div class="video-title">Music Reel 1</div>
             </div>
             <div class="video-box">
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/uiHDVpp86LM" allowfullscreen></iframe>
                 </div>
-                <div class="video-title"></div>
+                <div class="video-title">Music Reel 2</div>
             </div>
         </div>
     </section>
 
-    <!-- SOUND DESIGN SECTION -->
+    <!-- Sound Design Section -->
     <section id="sounddesign">
         <h2>Sound Design</h2>
         <p class="section-desc">Professional audio effects and atmospheric sound design that enhance immersion and bring your game world to life.</p>
-        
-        <h3 class="center">Sound Design Demos</h3>
-        <div class="videos">
-            <div class="video-box">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-                </div>
-                <div class="video-title">Sound Design Demo 1</div>
+        <div class="cards">
+            <div class="card">
+                <h3>UI & Interface Sounds</h3>
+                <p>Polished menu clicks, confirmations, and feedback sounds that guide player interactions.</p>
             </div>
-            <div class="video-box">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-                </div>
-                <div class="video-title">Sound Design Demo 2</div>
+            <div class="card">
+                <h3>Combat & Impact Sounds</h3>
+                <p>Dynamic weapon effects, hits, and impacts that make every action feel powerful and satisfying.</p>
             </div>
-            <div class="video-box">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-                </div>
-                <div class="video-title">Sound Design Demo 3</div>
-            </div>
-            <div class="video-box">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
-                </div>
-                <div class="video-title">Sound Design Demo 4</div>
+            <div class="card">
+                <h3>Environmental Audio</h3>
+                <p>Ambient soundscapes, foley, and atmospheric layers that create immersive game worlds.</p>
             </div>
         </div>
     </section>
 
-    <!-- TECHNICAL SOUND DESIGN SECTION -->
-    <section id="technicalsounddesign">
-        <h2>Technical Sound Design</h2>
+    <!-- Technical Sound Design Section -->
+    <section id="implementation">
+        <h2>Audio Implementation</h2>
         
         <div class="box">
             <h3>Interactive Audio Systems</h3>
@@ -531,18 +515,18 @@
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/RcDFzZmo5Q4" allowfullscreen></iframe>
                 </div>
-                <div class="video-title"></div>
+                <div class="video-title">Technical Implementation 1</div>
             </div>
             <div class="video-box">
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/6rd4wzTCRjo" allowfullscreen></iframe>
                 </div>
-                <div class="video-title"></div>
+                <div class="video-title">Technical Implementation 2</div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION -->
+    <!-- About Me Section -->
     <section id="about">
         <h2>About Me</h2>
         
@@ -555,8 +539,8 @@
 
             <div>
                 <h3>Education & Experience</h3>
-                <p>Game Audio: 2022–Present</p>
-                <p>Linear Audio: 2017–Present</p>
+                <p style="color: rgba(254, 243, 199, 0.6); font-size: 0.95rem;">Game Audio: 2022–Present</p>
+                <p style="color: rgba(254, 243, 199, 0.6); font-size: 0.95rem; margin-bottom: 1rem;">Linear Audio: 2017–Present</p>
                 
                 <div class="edu-list">
                     <div class="edu-item">
@@ -577,17 +561,17 @@
 
         <div class="box">
             <h3>Workflow & Collaboration</h3>
-            <p>Videogames and audiovisual projects are built by multidisciplinary teams and music is just one part of a bigger picture. Collaboration and communication are key. I approach every project as a shared creative process, working closely with developers, directors and sound teams to understand the goals behind each scene, mechanic or moment. The focus is not only on making good music, but on making unique music that enhances the overall experience.</p>
+            <p>Collaboration and communication are key to my approach. I work closely with developers, directors and sound teams to understand the creative vision and technical requirements. My focus is on creating unique, adaptive audio that enhances the overall experience and integrates seamlessly with your project's audio landscape.</p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>Let's talk about your ideas</h2>
+        <h2>Let's Work Together</h2>
         <p class="section-desc">Ready to elevate your game with professional audio? Get in touch to discuss your project.</p>
 
-       <div class="box center">
-           <a href="mailto:manuscz78@gmail.com?subject=Game Audio Project Inquiry" class="contact-link">
+        <div class="box center">
+            <a href="mailto:manuscz78@gmail.com?subject=Game Audio Project Inquiry" class="contact-link">
                 manuscz78@gmail.com
             </a>
             <p>Send me an email with details about your project</p>
@@ -605,6 +589,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2024 Manuel Sanchez. All rights reserved.</p>
     </footer>
